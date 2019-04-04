@@ -64,6 +64,8 @@ The first argument of method `timing(...)` requires a name of one of some timing
 * `'bounce'` - The change in value occurs trajectory of a dropped ball.
 * `'elastic'`  - The change in value like a damped pendulum.
 Also, you can use a callback function instead of the name of the timing function. That function must receive the linear value and returns a modified value as you wish.
+
+
 The second optional argument is a direct application. It must be one of these values:
 * `'in'` - default value. It means that the timing function will use in forwarding direction.
 * `'out'` - The timing function will use in a backward direction.
