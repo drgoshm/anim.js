@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Anim.js tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://unpkg.com/mocha@4.0.1/mocha.css" rel="stylesheet" />
+    <style>
+        .box {
+            width: 50px; 
+            height: 50px; 
+            padding: 10px; 
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        .box button {
+            margin: -10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="mocha">
+        <div>
+            <h1>Anim.js tests</h1> <pre>click on bars</pre>
+            <div id="box1" class="box" style="background-color: blueviolet; ">Linear slow</div>
+            <div id="box2" class="box" style="background-color: greenyellow;">Linear fast</div>
+            <div id="box3" class="box" style="background-color: skyblue;">Circle In</div>
+            <div id="box4" class="box" style="background-color: darkslateblue;">Circle Out</div>
+            <div id="box5" class="box" style="background-color: indianred;">Circle InOut</div>
+            <div id="box6" class="box" style="background-color: darkorchid;">Bounce In</div>
+            <div id="box7" class="box" style="background-color:firebrick;">Bounce Out</div>
+            <div id="box8" class="box" style="background-color: darkcyan;">Bounce InOut</div>
+            <div id="box9" class="box" style="background-color: slateblue;">Elastic Out</div>
+            <div id="box10" class="box" style="background-color: royalblue;">Click to <button id="box10_button">pause resume</button></div>
+        </div>
+    </div>
+    <script src="anim.js"></script>
+    <script>
+        const anim = new Anim();
+        document.getElementById('box1').addEventListener('click' ,() => {
+            anim.add('animation1', 3000).for(document.getElementById('box1').style, 'marginLeft').from(0).to(window.innerWidth - 200).tick( value => value + 'px').run();
+        });
+        document.getElementById('box2').addEventListener('click' ,() => {
+            anim.add('animation2', 1000).for(document.getElementById('box2').style, 'marginLeft').from(0).to(window.innerWidth - 200).tick( value => value + 'px').run();
+        });
+        document.getElementById('box3').addEventListener('click' ,() => {
+            anim.add('animation3', 2000).for(document.getElementById('box3').style, 'marginLeft').from(0).to(window.innerWidth - 200).tick( value => value + 'px' ).timing('circ').run();
+        });
+        document.getElementById('box4').addEventListener('click' ,() => {
+            anim.add('animation4', 2000).for(document.getElementById('box4').style, 'marginLeft').from(0).to(window.innerWidth - 200).tick( value => value + 'px').timing('circ', 'out').run();
+        });
+        document.getElementById('box5').addEventListener('click' ,() => {
+            anim.add('animation5', 2000).for(document.getElementById('box5').style, 'marginLeft').from(0).to(window.innerWidth - 200).tick( value => value + 'px').timing('circ', 'both').run();  
+        });
+        document.getElementById('box6').addEventListener('click' ,() => {      
+            anim.add('animation6', 3000).for(document.getElementById('box6').style, 'marginLeft').from(0).to(window.innerWidth - 200).tick( value => value + 'px').timing('bounce').run();
+        });
+        document.getElementById('box7').addEventListener('click' ,() => {
+            anim.add('animation7', 3000).for(document.getElementById('box7').style, 'marginLeft').from(0).to(window.innerWidth - 200).tick( value => value + 'px').timing('bounce', 'out').run();
+        });
+        document.getElementById('box8').addEventListener('click' ,() => {
+            anim.add('animation8', 4000).for(document.getElementById('box8').style, 'marginLeft').from(0).to(window.innerWidth - 200).tick( value => value + 'px').timing('bounce', 'both').run();
+        });
+        document.getElementById('box9').addEventListener('click' ,() => {
+            anim.add('animation9', 4000).for(document.getElementById('box9').style, 'marginLeft').from(0).to(window.innerWidth - 200).tick( value => value + 'px').timing('elastic', 'out').run();
+        });
+        document.getElementById('box10').addEventListener('click' ,() => {
+            anim.add('animation10', 10000).for(document.getElementById('box10').style, 'marginLeft').from(0).to(window.innerWidth - 200).tick( value => value + 'px').run();
+
+        });
+        document.getElementById('box10_button').addEventListener('click',(e) => {
+                if(anim.animation10 !== undefined)
+                    anim.animation10.started = !anim.animation10.started;
+                e.stopPropagation();
+        });
+        anim.loop();
+    </script>
+</body>
+</html>
