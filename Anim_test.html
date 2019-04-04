@@ -37,7 +37,7 @@
     </div>
     <script src="anim.js"></script>
     <script>
-        let anim = new Anim();
+        const anim = new Anim();
         document.getElementById('box1').addEventListener('click' ,() => {
             anim.add('animation1', 3000).for(document.getElementById('box1').style, 'marginLeft').from(0).to(window.innerWidth - 200).tick( value => value + 'px').run();
         });

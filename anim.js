@@ -17,7 +17,7 @@
 				'both': (f) => (p) => p < .5 ? f(2 * p) / 2 : (2 - f(2 * (1 - p))) / 2
 			};
 		this.add = function (id, duration) {
-			if(id == 'update' || id == 'add' || typeof duration !== 'number') return;
+			if(id == 'update' || id == 'add' || id == 'loop' || typeof duration !== 'number') return;
 			const a = {
 					duration: duration,
 					progress: 0,
