@@ -6,7 +6,7 @@ This is a little tool(~1.6KiB) designed to animate any JS object. The basic conc
 ![screenshot](anim_cheat.png)
 
 
-[Example](https://drgoshm.github.io/anim.js/Anim_test)
+[Example](https://drgoshm.github.io/anim.js/test)
 
 Of course CSS animation better then JS, but I guess this tool will help somebody who tries animate drawing on HTML5 canvas.
 
