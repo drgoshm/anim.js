@@ -59,15 +59,15 @@ anim.add('animationName', 3000).timing('bounce', 'out')
 ```
 
 The first argument of method `timing(...)` requires a name of one of some timing functions which included in the base object: 
-*`'linear'` - default linear timing function. Change of values occurs linearly.
-*`'circ'` - The change in value occurs smoothly along the arc. 
-*`'bounce'` - The change in value occurs trajectory of a dropped ball.
-*`'elastic'`  - The change in value like a damped pendulum.
+* `'linear'` - default linear timing function. Change of values occurs linearly.
+* `'circ'` - The change in value occurs smoothly along the arc. 
+* `'bounce'` - The change in value occurs trajectory of a dropped ball.
+* `'elastic'`  - The change in value like a damped pendulum.
 Also, you can use a callback function instead of the name of the timing function. That function must receive the linear value and returns a modified value as you wish.
 The second optional argument is a direct application. It must be one of these values:
-*`'in'` - default value. It means that the timing function will use in forwarding direction.
-*`'out'` - The timing function will use in a backward direction.
-*`'both'` - The timing function will use in both directions.
+* `'in'` - default value. It means that the timing function will use in forwarding direction.
+* `'out'` - The timing function will use in a backward direction.
+* `'both'` - The timing function will use in both directions.
 
 ```javascript
 anim.add('animationName', 3000).run();
